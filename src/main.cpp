@@ -98,7 +98,7 @@ int main() {
 	  // Transform waypoints' coordinates to vehicle coordinate system
 	  Eigen::VectorXd vehicle_ptsx(ptsx.size());
           Eigen::VectorXd vehicle_ptsy(ptsy.size());
-	  for (int i=0; i < ptsx.size(); i++) {
+	  for (unsigned int i=0; i < ptsx.size(); i++) {
 	    double vehicle_x = ptsx[i] - px;
 	    double vehicle_y = ptsy[i] - py;
 
@@ -140,7 +140,7 @@ int main() {
           json msgJson;
           // NOTE: Remember to divide by deg2rad(25) before you send the steering value back.
           // Otherwise the values will be in between [-deg2rad(25), deg2rad(25] instead of [-1, 1].
-          double steer_value = vars[0] / deg2rad(25);
+          double steer_value = vars[0] / deg2rad(25) / Lf;
           double throttle_value = vars[1];
 
 	  msgJson["steering_angle"] = steer_value;
@@ -150,7 +150,7 @@ int main() {
           vector<double> mpc_x_vals = {state[0]};
           vector<double> mpc_y_vals = {state[1]};
 
-          for(int i = 2; i < vars.size(); i+=2 ) {
+          for(unsigned int i = 2; i < vars.size(); i+=2 ) {
             mpc_x_vals.push_back(vars[i]); 
             mpc_y_vals.push_back(vars[i + 1]); 
           }
@@ -168,9 +168,9 @@ int main() {
           //.. add (x,y) points to list here, points are in reference to the vehicle's coordinate system
           // the points in the simulator are connected by a Yellow line
 
-	  for (int i = 1; i < 20; i++){
-            next_x_vals.push_back(2.0 * i);
-            next_y_vals.push_back(polyeval(coeffs, 2.0 * i));
+	  for (unsigned int i = 1; i < 30; i++){
+            next_x_vals.push_back(3.0 * i);
+            next_y_vals.push_back(polyeval(coeffs, 3.0 * i));
           }
           msgJson["next_x"] = next_x_vals;
           msgJson["next_y"] = next_y_vals;
