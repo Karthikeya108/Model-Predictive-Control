@@ -1,3 +1,5 @@
+// Ref: Most of the code has been taken from the Udacity MPC Quiz
+
 #include "MPC.h"
 #include <cppad/cppad.hpp>
 #include <cppad/ipopt/solve.hpp>
@@ -22,7 +24,7 @@ double dt = 0.1;
 const double Lf = 2.67;
 
 // Both the reference cross track and orientation errors are 0.
-// The reference velocity is set to 40 mph.
+// The reference velocity is set to 100 mph.
 const double ref_v = 100;
 
 // The solver takes all the state variables and actuator

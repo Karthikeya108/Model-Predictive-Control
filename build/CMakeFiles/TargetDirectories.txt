@@ -1,3 +1,0 @@
-/home/workspace/Model-Predictive-Control/build/CMakeFiles/edit_cache.dir
-/home/workspace/Model-Predictive-Control/build/CMakeFiles/rebuild_cache.dir
-/home/workspace/Model-Predictive-Control/build/CMakeFiles/mpc.dir

@@ -117,6 +117,7 @@ int main() {
           // Calculate the orientation error
 	  double epsi = - atan(coeffs[1]);
 
+          // predicted values for px, py, v, psi, cte and epsi accounting for latency
 	  const double latency = 0.1;
 	  const double Lf = 2.67;
 	  double px_predicted = 0.0 + v * cos(vehicle_coord_x) * latency;
